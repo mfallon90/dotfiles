@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -103,6 +108,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 

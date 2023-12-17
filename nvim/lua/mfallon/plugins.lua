@@ -41,6 +41,9 @@ return packer.startup(function(use)
     use "lunarvim/colorschemes"
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
+    use "ibhagwan/fzf-lua"
+    use "tpope/vim-commentary"
+    use "christoomey/vim-tmux-navigator"
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

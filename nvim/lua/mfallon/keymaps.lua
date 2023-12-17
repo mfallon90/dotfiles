@@ -21,7 +21,6 @@ keymap("n", "N", "Nzz", opts)
 -- Move chunks in visual mode
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
-
 -- Open splits
 keymap("n", "<leader>v", "<Cmd>vsplit<Cr>", opts)
 keymap("n", "<leader>s", "<Cmd>split<Cr>", opts)
@@ -38,8 +37,31 @@ keymap("n", "<leader>w3", "<C-w>3x<C-w>3w", opts)
 keymap("n", "<leader>w4", "<C-w>4x<C-w>4w", opts)
 keymap("n", "<leader>w5", "<C-w>5x<C-w>5w", opts)
 
+-- Insert newline
+keymap("n", "<leader>o", "o<Esc>k", opts)
+keymap("n", "<leader>O", "O<Esc>j", opts)
+
+-- Navigate in insert mode
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
+
 -- Navigate between buffers
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Nvim-Tree
+keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<Cr>", opts)
+
+-- Fzf-lua
+keymap("n", "<leader>ff", "<Cmd>lua require'fzf-lua'.files({winopts={height=0.25,width=0.5,row=0.25,col=0.5}})<Cr>'", opts)
+keymap("n", "<leader>fg", "<Cmd>lua require'fzf-lua'.grep({winopts={preview={hidden='nohidden'}}})<Cr><Cr>'", opts)
+keymap("n", "<leader>rg", "<Cmd>lua require'fzf-lua'.live_grep_glob({winopts={preview={hidden='nohidden'}}})<Cr><Cr>'", opts)
+
+-- Comment lines
+keymap("n", "<leader>/", "<Cmd>Commentary<Cr>", opts)
+keymap("v", "<leader>/", "<Cmd>Commentary<Cr>", opts)
+
