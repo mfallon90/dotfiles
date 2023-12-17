@@ -1,0 +1,16 @@
+
+import:
+  - ~/.config/alacritty/imports/onedark.yml
+  - ~/.config/alacritty/imports/fonts.yml
+
+window:
+  dynamic_padding: true
+  startup_mode: Windowed
+  option_as_atl: OnlyLeft
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: true
+
+live_config_reload: true
+

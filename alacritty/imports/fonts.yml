@@ -1,0 +1,33 @@
+# For some reason the commented out 'family'
+# was necessary to get it to work on MacOs
+
+font:
+  normal:
+     # family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
+    style: Regular
+
+  bold:
+     # family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
+    style: Bold
+
+  italic:
+     # family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
+    style: Italic
+
+  bold_italic:
+     # family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
+    style: Italic
+
+  size: 12.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0

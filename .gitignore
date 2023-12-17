@@ -1,5 +1,15 @@
-# Ignore everything
-*
 
-# Except the following
-!nvim/
+abrt/
+dconf/
+evolution/
+gnome*
+GNOME*
+goa-1.0/
+.gsd*
+gtk-3.0/
+ibus/
+monitors*
+nautilus/
+pulse/
+user*
+xdg*
