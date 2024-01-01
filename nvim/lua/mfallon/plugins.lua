@@ -44,6 +44,8 @@ return packer.startup(function(use)
     use "ibhagwan/fzf-lua"
     use "tpope/vim-commentary"
     use "christoomey/vim-tmux-navigator"
+    use "nvim-lualine/lualine.nvim"
+    use "echasnovski/mini.align"
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

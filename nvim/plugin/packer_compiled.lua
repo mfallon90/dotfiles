@@ -84,6 +84,16 @@ _G.packer_plugins = {
     path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/fzf-lua",
     url = "https://github.com/ibhagwan/fzf-lua"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["mini.align"] = {
+    loaded = true,
+    path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/mini.align",
+    url = "https://github.com/echasnovski/mini.align"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/mfallon/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
