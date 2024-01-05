@@ -16,3 +16,6 @@ xdg*
 tmux/plugins/
 google*
 mime*
+autostart/
+menus/
+wireshark/

@@ -5,7 +5,10 @@ require "mfallon.keymaps"
 require "mfallon.colorschemes"
 require "mfallon.nvimtree"
 require "mfallon.fzf"
+require "mfallon.treesitter"
+require "mfallon.highlights"
+require "mfallon.mason"
+require "mfallon.lspconfig"
+require "mfallon.gitsigns"
+require "mfallon.autocommands"
 require "mfallon.lualine"
-require "mfallon.align"
-
-vim.cmd([[highlight Whitespace guifg=#4b4b4b]])

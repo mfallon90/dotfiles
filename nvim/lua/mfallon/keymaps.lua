@@ -15,12 +15,14 @@ keymap("n", "L", "$", opts)
 
 -- find words
 keymap("n", "fw", "viw*N<Esc>", opts)
+keymap("n", "fW", "viW*N", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
 -- Move chunks in visual mode
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
 -- Open splits
 keymap("n", "<leader>v", "<Cmd>vsplit<Cr>", opts)
 keymap("n", "<leader>s", "<Cmd>split<Cr>", opts)
@@ -53,15 +55,44 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Yank and put to clipboards
+keymap("v", "<C-y>", "\"+y", opts)
+keymap("n", "<C-p>", "\"+P", opts)
+
 -- Nvim-Tree
 keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<Cr>", opts)
-
--- Fzf-lua
-keymap("n", "<leader>ff", "<Cmd>lua require'fzf-lua'.files({winopts={height=0.25,width=0.5,row=0.25,col=0.5}})<Cr>'", opts)
-keymap("n", "<leader>fg", "<Cmd>lua require'fzf-lua'.grep({winopts={preview={hidden='nohidden'}}})<Cr><Cr>'", opts)
-keymap("n", "<leader>rg", "<Cmd>lua require'fzf-lua'.live_grep_glob({winopts={preview={hidden='nohidden'}}})<Cr><Cr>'", opts)
+keymap("n", "<leader>c", "<Cmd>NvimTreeCollapse<Cr>", opts)
 
 -- Comment lines
-keymap("n", "<leader>/", "<Cmd>Commentary<Cr>", opts)
-keymap("v", "<leader>/", "<Cmd>Commentary<Cr>", opts)
+keymap("v", "<leader>/", ":'<,'>Commentary<Cr>", opts)
+keymap("n", "<leader>/", ":Commentary<Cr>", opts)
 
+-- Jump to context
+keymap("n", "[c", "<Cmd>lua require('treesitter-context').go_to_context()<Cr>zz", opts)
+
+-- Gitsigns keymaps
+keymap("n", "<leader>bl", "<Cmd>Gitsigns blame_line<Cr>", opts)
+keymap("n", "<leader>dh", "<Cmd>Gitsigns preview_hunk<Cr>", opts)
+keymap("n", "<leader>nh", "<Cmd>Gitsigns next_hunk<Cr>", opts)
+keymap("n", "<leader>ph", "<Cmd>Gitsigns prev_hunk<Cr>", opts)
+
+-- Fzf-lua
+keymap('n', '<leader>ffi', ':lua FILES_IGNORE()<CR>', opts)
+keymap('n', '<leader>ffn', ':lua FILES_NO_IGNORE()<CR>', opts)
+keymap('n', '<leader>rgi', ':lua RIP_GREP_IGNORE()<CR>', opts)
+keymap('n', '<leader>rgn', ':lua RIP_GREP_NO_IGNORE()<CR>', opts)
+keymap('n', '<leader>lgi', ':lua LIVE_GREP_IGNORE()<CR>', opts)
+keymap('n', '<leader>lgn', ':lua LIVE_GREP_NO_IGNORE()<CR>', opts)
+
+-- resize buffers
+keymap('n', '<leader>=', '<Cmd>wincmd =<CR>', opts)
+keymap('n', '<leader>|', '<Cmd>vertical resize<CR>', opts)
+keymap('n', '<leader>-', '<Cmd>resize<CR>', opts)
+
+-- alignment keymaps
+keymap('n', "ga", ":EasyAlign<Cr>", opts)
+keymap('x', "ga", ":EasyAlign<Cr>", opts)
+keymap('v', "ga", ":EasyAlign<Cr>", opts)
+
+-- clear highlights
+keymap("n", "<leader>hl", "<Cmd>noh<Cr>", opts)

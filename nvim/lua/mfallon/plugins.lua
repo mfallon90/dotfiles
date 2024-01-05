@@ -44,8 +44,15 @@ return packer.startup(function(use)
     use "ibhagwan/fzf-lua"
     use "tpope/vim-commentary"
     use "christoomey/vim-tmux-navigator"
+    use {"nvim-treesitter/nvim-treesitter", run=':TSUpdate'}
+    use "nvim-treesitter/nvim-treesitter-context"
+    use "nvim-treesitter/nvim-treesitter-textobjects"
+    use "williamboman/mason-lspconfig.nvim"
+    use "williamboman/mason.nvim"
+    use "neovim/nvim-lspconfig"
+    use "lewis6991/gitsigns.nvim"
+    use "junegunn/vim-easy-align"
     use "nvim-lualine/lualine.nvim"
-    use "echasnovski/mini.align"
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

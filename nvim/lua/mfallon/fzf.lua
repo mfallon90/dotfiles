@@ -1,3 +1,5 @@
+
+
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
   -- fzf_bin         = 'sk',            -- use skim instead of fzf?
@@ -263,7 +265,8 @@ require'fzf-lua'.setup {
     -- otherwise auto-detect prioritizes `fd`:`rg`:`find`
     -- default options are controlled by 'fd|rg|find|_opts'
     -- NOTE: 'find -printf' requires GNU find
-    -- cmd            = "find . -type f -printf '%P\n'",
+    -- cmd               = "find . -type f -printf '%P\n'",
+    cmd               = 'rg --files --hidden --glob "!.git/*"',
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
     rg_opts           = "--color=never --files --hidden --follow -g '!.git'",
     fd_opts           = "--color=never --type f --hidden --follow --exclude .git",
@@ -437,7 +440,7 @@ require'fzf-lua'.setup {
   },
   args = {
     prompt            = 'Args❯ ',
-    files_only        = true,
+    files_only        = false,
     -- actions inherit from 'actions.files' and merge
     actions           = { ["ctrl-x"] = { fn = actions.arg_del, reload = true } },
   },
@@ -724,22 +727,53 @@ require'fzf-lua'.setup {
     -- previewer hidden by default
     winopts      = { preview = { hidden = "hidden" } },
   },
-  -- uncomment to use fzf native previewers
-  -- (instead of using a neovim floating window)
-  -- manpages = { previewer = "man_native" },
-  -- helptags = { previewer = "help_native" },
-  -- 
-  -- optional override of file extension icon colors
-  -- available colors (terminal):
-  --    clear, bold, black, red, green, yellow
-  --    blue, magenta, cyan, grey, dark_grey, white
   file_icon_colors = {
     ["sh"] = "green",
   },
-  -- padding can help kitty term users with
-  -- double-width icon rendering
   file_icon_padding = '',
-  -- uncomment if your terminal/font does not support unicode character
-  -- 'EN SPACE' (U+2002), the below sets it to 'NBSP' (U+00A0) instead
-  -- nbsp = '\xc2\xa0',
 }
+
+-- Function to search files respecting .gitignore
+function FILES_IGNORE()
+    require'fzf-lua'.files({
+        winopts={height=0.35,width=0.7,row=0.25,col=0.5},
+        cmd = 'rg --files --hidden --glob "!.git/*"'
+    })
+end
+
+-- Function to search files not respecting .gitignore
+function FILES_NO_IGNORE()
+    require'fzf-lua'.files({
+        winopts={height=0.35,width=0.7,row=0.25,col=0.5},
+        cmd = 'rg --files --hidden --no-ignore --glob "!.git/*"'
+    })
+end
+
+-- Function to grep files respecting .gitignore
+function RIP_GREP_IGNORE()
+    require'fzf-lua'.grep({
+        rg_opts = "--hidden --glob '!{.git,node_modules}/*'"
+    })
+end
+
+-- Function to grep files not respecting .gitignore
+function RIP_GREP_NO_IGNORE()
+    require'fzf-lua'.grep({
+        rg_opts = "--hidden --no-ignore --glob '!{.git,node_modules}/*'"
+    })
+end
+
+-- Function to grep files respecting .gitignore
+function LIVE_GREP_IGNORE()
+    require'fzf-lua'.live_grep_glob({
+        -- rg_opts  "--hidden --glob '!{.git,node_modules}/*'"
+    })
+end
+
+-- Function to grep files not respecting .gitignore
+function LIVE_GREP_NO_IGNORE()
+    require'fzf-lua'.live_grep_glob({
+        -- rg_opts = "--hidden --no-ignore --glob '!{.git,node_modules}/*'"
+        rg_opts = "--no-ignore"
+    })
+end
